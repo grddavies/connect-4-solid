@@ -1,0 +1,38 @@
+:root {
+  --sq-width: 50px;
+  --sq-x: 8px;
+}
+
+.square-outer {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: var(--sq-width);
+  width: var(--sq-width);
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  position: relative;
+}
+
+.square-inner {
+  background: lightblue;
+  border: 1px solid #999;
+  border-radius: 50%;
+  width: calc(var(--sq-width) - var(--sq-x));
+  height: calc(var(--sq-width) - var(--sq-x));
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
