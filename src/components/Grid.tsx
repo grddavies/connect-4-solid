@@ -1,12 +1,17 @@
-import { Component, For } from "solid-js";
+import { Component, ComponentProps, For } from "solid-js";
 import Square, { SquareVal } from "./Square";
 
-const Grid: Component = () => {
+interface GridProps extends ComponentProps<"div"> {
+  // array of cols
+  gridvals: SquareVal[];
+  clickhandler: (i: number) => void;
+}
+
+const Grid: Component<GridProps> = (props: GridProps) => {
   const nrows = 6,
     ncols = 7,
     rows = [...Array(nrows).keys()],
-    cols = [...Array(ncols).keys()],
-    vals: SquareVal[] = [null, -1, 1];
+    cols = [...Array(ncols).keys()];
   return (
     <div>
       <For each={rows}>
@@ -14,11 +19,13 @@ const Grid: Component = () => {
           <div className="grid-row">
             <For each={cols}>
               {(j) => {
-                  const foo = Math.floor(Math.random() * vals.length)
-                  return (
+                return (
                   <Square
-                    value={vals[foo]}
-                  ></Square>
+                    value={props.gridvals[i + nrows * j]}
+                    onClick={() => props.clickhandler(i + nrows * j)}
+                  >
+                    {i + nrows * j}
+                  </Square>
                 );
               }}
             </For>

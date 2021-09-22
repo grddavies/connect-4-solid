@@ -7,15 +7,16 @@ export type SquareVal = 1 | -1 | null;
 
 export interface SquareProps extends ComponentProps<"div"> {
   value: SquareVal;
+  onClick: () => void;
 }
 
 const Square: Component<SquareProps> = (props: SquareProps) => {
-  let v = props.value;
   return (
     <div className="outer">
-      <div
-        className={"inner" + (v ? " inner-" + (v === 1 ? "p1" : "p2") : "")}
-      ></div>
+      <button
+        className={"inner" + (props.value ? " inner-" + (props.value === 1 ? "p1" : "p2") : "")}
+        onClick={() => props.onClick()}
+      >{props.children}</button>
     </div>
   );
 };

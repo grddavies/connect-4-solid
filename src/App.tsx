@@ -1,13 +1,12 @@
 import type { Component } from "solid-js";
-import Square from "./components/Square";
-import Grid from "./components/Grid";
+import ConnectFour from "./components/ConnectFour";
 
 const App: Component = () => {
   return (
-    <>
+    <main>
       <h1>Connect-4</h1>
-      <main><Grid></Grid></main>
-    </>
+      <ConnectFour></ConnectFour>
+    </main>
   );
 };
 

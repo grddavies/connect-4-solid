@@ -42,11 +42,16 @@ export function checkwinner(grid: SquareVal[][], player: SquareVal) {
     }
   }
   // descendingDiagonalCheck
-  for (let i=3; i<width; i++){
-      for (let j=3; j<height; j++){
-          if (grid[i][j] == player && grid[i-1][j-1] == player && grid[i-2][j-2] == player && grid[i-3][j-3] == player)
-              return true;
-      }
+  for (let i = 3; i < width; i++) {
+    for (let j = 3; j < height; j++) {
+      if (
+        grid[i][j] == player &&
+        grid[i - 1][j - 1] == player &&
+        grid[i - 2][j - 2] == player &&
+        grid[i - 3][j - 3] == player
+      )
+        return true;
+    }
   }
   return false;
 }
