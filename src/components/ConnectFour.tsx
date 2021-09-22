@@ -1,10 +1,7 @@
 import {
   Component,
-  createMemo,
   createSignal,
   Show,
-  Switch,
-  Match,
 } from "solid-js";
 
 import Grid from "./Grid";
@@ -39,24 +36,26 @@ const ConnectFour: Component = () => {
     },
     handleClick = (x: number) => {
       const grid = currentGrid().slice(),
-        j = Math.floor(x / nrow),
-        // i = x % nrow,
+        j = Math.floor(x / nrow), // index of col
         col = grid.slice(j * nrow, j * nrow + nrow);
+      // Find index of first empty square in col
       let nonNullIndex = col.findIndex((e) => e !== null);
-      // skip if row full or game already over
+      // Skip if row full or game already over
       if (!nonNullIndex || state.winner) return;
       if (nonNullIndex === -1) {
         // No counters in col
         nonNullIndex = nrow;
       }
-      const targetLoc = j * nrow + nonNullIndex -1;
       // update first empty square in column
+      const targetLoc = j * nrow + nonNullIndex -1;
       grid[targetLoc] = state.currentMoveNum % 2 === 0 ? 1 : -1;
+      // Update game state
       setState((state) => ({
         history: state.history.concat([grid]),
         currentMoveNum: state.currentMoveNum + 1,
-        winner: calculateWinner(grid, nrow), // calculate winner
+        winner: calculateWinner(grid, nrow),
       }));
+      // Update current grid
       setCurrentGrid(grid);
     };
   return (
