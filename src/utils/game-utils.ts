@@ -55,3 +55,18 @@ export function checkwinner(grid: SquareVal[][], player: SquareVal) {
   }
   return false;
 }
+
+export function calculateWinner(lgrid: SquareVal[], nrow: number) {
+  const grid = splitArray(lgrid, nrow);
+  if (checkwinner(grid, 1)) return 1;
+  if (checkwinner(grid, -1)) return -1;
+  else return null;
+}
+
+function splitArray(array: Array<any>, part: number) {
+  var tmp = [];
+  for (var i = 0; i < array.length; i += part) {
+    tmp.push(array.slice(i, i + part));
+  }
+  return tmp;
+}
