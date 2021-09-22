@@ -23,9 +23,7 @@ const Grid: Component<GridProps> = (props: GridProps) => {
                   <Square
                     value={props.gridvals[i + nrows * j]}
                     onClick={() => props.clickhandler(i + nrows * j)}
-                  >
-                    {i + nrows * j}
-                  </Square>
+                  />
                 );
               }}
             </For>
