@@ -63,7 +63,7 @@ const ConnectFour: Component = () => {
     <Show when={!state.winner}>
       <Show when={state.currentMoveNum % 2 === 0} fallback="Yellow's">Red's</Show> turn
     </Show>
-      <Grid gridvals={currentGrid()} clickhandler={(i) => handleClick(i)} />
+      <Grid nrow={nrow} ncol={ncol} gridvals={currentGrid()} clickhandler={(i) => handleClick(i)} />
       <button onClick={() => initGame()}>New Game</button>
       <Show when={state.winner}>
           Winner: <Show when={state.winner === 1} fallback="Yellow">Red</Show>

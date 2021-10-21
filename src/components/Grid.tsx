@@ -2,14 +2,16 @@ import { Component, ComponentProps, For } from "solid-js";
 import Square, { SquareVal } from "./Square";
 
 interface GridProps extends ComponentProps<"div"> {
-  // array of cols
+  // linearized grid
   gridvals: SquareVal[];
   clickhandler: (i: number) => void;
+  ncol: number;
+  nrow: number;
 }
 
 const Grid: Component<GridProps> = (props: GridProps) => {
-  const nrows = 6,
-    ncols = 7,
+  const nrows = props.nrow,
+    ncols = props.ncol,
     rows = [...Array(nrows).keys()],
     cols = [...Array(ncols).keys()];
   return (
