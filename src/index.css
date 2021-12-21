@@ -5,6 +5,10 @@
   --bd-corner-round: 100%;
 }
 
+.fullscreen{
+  height: 100vh;
+}
+
 .outer {
   background: darkblue;
   float: left;
