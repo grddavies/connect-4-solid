@@ -20,27 +20,11 @@
 }
 
 .border-h {
-  background: darkblue;
-  float: left;
   height: calc(var(--sq-width) / var(--bd-ratio));
-  width: var(--sq-width);
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  position: relative;
 }
 
 .border-v {
-  background: darkblue;
-  float: left;
-  height: var(--sq-width);
   width: calc(var(--sq-width) / var(--bd-ratio));
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  position: relative;
 }
 
 .border-corner {

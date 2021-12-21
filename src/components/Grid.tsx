@@ -9,7 +9,7 @@ interface GridProps extends ComponentProps<"div"> {
   nrow: number;
 }
 
-const borderClass = (i, j, rows, cols) => {
+const borderClass = (i: number, j:number, rows: number[], cols: number[]) => {
   let top = i === rows.at(0) ? "border-h" : "",
     bottom = i === rows.at(-1) ? "border-h" : "",
     left = j === cols.at(0) ? "border-v" : "",
@@ -40,10 +40,10 @@ const Grid: Component<GridProps> = (props: GridProps) => {
             <div className="grid-row">
               <For each={cols}>
                 {(j) => {
-                  let thisborderClass = borderClass(i, j, rows, cols),
+                  let ijBorderClass = borderClass(i, j, rows, cols),
                     sqid = i - 1 + nrows * (j - 1);
-                  if (thisborderClass) {
-                    return <div class={thisborderClass}></div>;
+                  if (ijBorderClass) {
+                    return <div class={"outer " + ijBorderClass}></div>;
                   } else {
                     return (
                       <Square
