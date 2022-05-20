@@ -1,6 +1,12 @@
 :root {
   --sq-width: 50px;
   --sq-x: 8px;
+  --bd-ratio: 4;
+  --bd-corner-round: 100%;
+}
+
+.fullscreen{
+  height: 100vh;
 }
 
 .outer {
@@ -15,6 +21,35 @@
   padding: 0;
   text-align: center;
   position: relative;
+}
+
+.border-h {
+  height: calc(var(--sq-width) / var(--bd-ratio));
+}
+
+.border-v {
+  width: calc(var(--sq-width) / var(--bd-ratio));
+}
+
+.border-corner {
+  height: calc(var(--sq-width) / var(--bd-ratio));
+  width: calc(var(--sq-width) / var(--bd-ratio));
+}
+
+.border-tl {
+  border-radius: var(--bd-corner-round) 0 0 0;
+}
+
+.border-tr {
+  border-radius: 0 var(--bd-corner-round) 0 0;
+}
+
+.border-br {
+  border-radius: 0 0 var(--bd-corner-round) 0;
+}
+
+.border-bl {
+  border-radius: 0 0 0 var(--bd-corner-round);
 }
 
 .inner {
